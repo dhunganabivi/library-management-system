@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<table class ="table ">
+  
+  <tr>
+    <th>ISBN</td>
+    <th>Book Name</td>
+    <th>Price</td>
+    <th>Author Name</td>
+
+    {% for i in b_image %}
+    
+    <img src="{{ i.b_image.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
+
+   
+
+    <tr>
+      <td>{{i.b_isbn}}</td>
+      <td>{{i.b_name}}</td>
+      <td>{{i.b_price}}</td>
+      <td>{{i.b_authorname}}</td>
+      <td>
+        <a href="edit/{{i.id}}">Edit</a>
+      </td>
+      <td>
+        <a href="delete/{{i.id}}">Delete</a>
+      </td>
+    </tr>
+
+    {% endfor %}
+
+  </th>
+</table>
+{% endblock %}

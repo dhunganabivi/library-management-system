@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form method="POST" action="add" enctype="multipart/form-data">
+  {% csrf_token %}
+  <label>ISBN:</label>
+  <div>{{ form.b_isbn}}</div>
+  <label>Book Name</label>
+  <div>{{ form.b_name}}</div>
+  <label>Price:</label>
+  <div>{{ form.b_price}}</div>
+  <label>Author Name</label>
+  <div>{{ form.b_authorname}}</div>
+  <label >Image</label>
+  
+  <div>{{ form.b_image }} </div>
+   
+    <button type="submit" value="add", name="add">Add </button>
+  </div>
+
+</form>
+{% endblock %}

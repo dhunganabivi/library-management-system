@@ -1,0 +1,92 @@
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+  .heading {
+    margin-top: 19px;
+    text-align: center;
+  }
+  .heading span {
+    color: cornflowerblue;
+    font-size: larger;
+    font-weight: 700;
+    font-size: x-large;
+    font-family: inherit;
+    color: black;
+    letter-spacing: 3px;
+  }
+ 
+ 
+</style>
+</head>
+<body>
+  <div class="heading">
+    <span>
+      Books
+    </span>
+  </div>
+  <div class="card" style="width: 21rem;"></div>
+
+
+
+    
+    
+    
+    <div class="products container-fluid">
+      <div class="row">
+
+        {% for i in b %}
+      
+        
+          
+          <div class="card col-md-3 mr-4 my-4" style="width: 18rem;">
+            <div class="image">
+            <img src="{{i.b_image.url}}" style="height: 350px; width:225px;">
+            </div>
+            <div class="card-header font-weight-bold">
+              ISBN: {{i.b_isbn}}
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Book Name:{{i.b_name}}</li>
+              <li class="list-group-item">
+                Book Price : Rs.{{i.b_price}}
+              </li>
+              <li class="list-group-item">
+                Author Name : {{i.b_authorname}}
+              </li>
+
+             
+                
+                <button type="button" class="btn btn-dark col-lg-10" > <a style="color: white;
+                " href="edit/{{i.id}}">Edit</a> </button>
+                <button type="button" class="btn btn-danger col-lg-10"> <a style="color: white;
+                " href="delete/{{i.id}}">Delete</a> </button>
+             
+              
+            </ul>
+         
+        </div>
+        
+{% endfor %}
+<footer class="mb-5"	>
+  <p class="text-center bg-dark text-white">@copyright Library.com 2020</p>
+</footer>
+</div>
+
+
+
+   
+
+  
+{% endblock %}
